@@ -86,10 +86,10 @@ fillGallery(images);
 gallery.addEventListener("click", handlerGalleryClick);
 
 function handlerGalleryClick(event) {
-  event.preventDefault(); // Блокуємо перехід за посиланням
+  event.preventDefault(); 
 
   if (event.target === event.currentTarget) {
-    return; // Якщо клікнули на сам ul.gallery — нічого не робимо
+    return; 
   }
 
   const clickedImage = event.target.closest(".gallery-image");
@@ -100,15 +100,15 @@ function handlerGalleryClick(event) {
   console.log("Опис зображення:", clickedImage.alt);
 
   
-  const largeImageURL = clickedImage.dataset.source; // Отримуємо data-source
+  const largeImageURL = clickedImage.dataset.source; 
   
-  const instance = basicLightbox.create(`
+  const modal = basicLightbox.create(`
     <div class="modal">
     <img src="${largeImageURL}" alt="${clickedImage.alt}">
     </div>
 `)
-  instance.show()
-  
+  modal.show()
+
 }
 
 
